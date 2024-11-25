@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { UserProvider } from "./context/UserContext";
+import { RoleProvider } from "./context/RoleContext";
+import { PermissionProvider } from "./context/PermissionContext";
 
-function App() {
+import Dashboard from "./pages/Dashboard";
+import UserManagement from "./pages/UserManagement";
+import RoleManagement from "./pages/RoleManagement";
+import PermissionManagement from "./pages/PermissionManagement";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <RoleProvider>
+        <PermissionProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/user-management" element={<UserManagement />} />
+              <Route path="/role-management" element={<RoleManagement />} />
+              <Route path="/permission-management" element={<PermissionManagement />} />
+            </Routes>
+          </Router>
+        </PermissionProvider>
+      </RoleProvider>
+    </UserProvider>
   );
-}
+};
 
 export default App;
