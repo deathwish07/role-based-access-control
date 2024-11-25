@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Role-Based Access Control (RBAC)
+
+This project is a React-based Admin Dashboard with Role-Based Access Control (RBAC), allowing administrators to manage users, assign roles, and toggle user statuses. It features a tabular interface with sorting, filtering, and search capabilities for efficient user management, while ensuring security through role-based access.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
